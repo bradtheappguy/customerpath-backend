@@ -25,6 +25,8 @@ app.configure(function () {
 });
 
 app.configure('development', function () {
+    var dotenv = require('dotenv');
+    dotenv.load();
     app.use(express.errorHandler());
 });
 
