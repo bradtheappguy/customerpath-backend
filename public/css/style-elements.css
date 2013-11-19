@@ -1,0 +1,35 @@
+.easyPieChart {
+position:relative;
+text-align:center
+}
+
+.easyPieChart canvas {
+position:absolute;
+top:0;
+left:0
+}
+
+.jqstooltip {
+position:absolute;
+left:0;
+top:0;
+display:block;
+visibility:hidden;
+background:#000 transparent;
+background-color:rgba(0,0,0,0.6);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000)";
+color:#fff;
+font:10px arial,san serif;
+text-align:left;
+white-space:nowrap;
+border:1px solid #fff;
+z-index:10000
+}
+
+.jqsfield {
+color:#fff;
+padding:5px 5px 8px;
+font:10px arial,san serif;
+text-align:left
+}
