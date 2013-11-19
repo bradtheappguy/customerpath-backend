@@ -9,7 +9,8 @@
     "dependencies": {
         "express": "3.1.0",
         "request": "*",
-        "ejs": "*"
+        "ejs": "*",
+	"connect":"*"
     },
     "engines": {
         "node": "0.10.x",
