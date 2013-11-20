@@ -105,7 +105,7 @@ app.all('/ping/*', function (req, res) {
 function loginWithOauthPassword() {
     return request({
         url: "https://login.salesforce.com/services/oauth2/token",
-        method: req.method,
+        method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
