@@ -71,26 +71,13 @@ app.all('/proxy/?*', function (req, res) {
 });
 
 app.all('/ping/*', function (req, res) {
-    log(req);
-    var authenticatedSession = loginWithOauthPassword();
-    var body = req.body;
+    //log(req);
+    var reqbody = req.body;
     var contentType = "application/json";
     var sfEndpoint = "https://na15.salesforce.com/services/apexrest/Ping/";
-    //if (body) {
-    //    //if doing oauth, then send body as form-urlencoded
-    //    if (sfEndpoint && sfEndpoint.indexOf('oauth2') > 0) {
-    //        body = getAsUriParameters(body);
-    //    } else {//for everything else, it's json
-    //        contentType = "application/json";
-            body = JSON.stringify(body);
-    //    }
-    //}
 
-    if ((!body || JSON.stringify(body) === "\"{}\"") && (typeof sfEndpoint != "string")) {
-        return res.send('Request successful (but nothing to proxy to SF)');
-    }
+    reqbody = JSON.stringify(reqbody);
 
-    console.log(authenticatedSession);
 
     request({
         url: "https://login.salesforce.com/services/oauth2/token",
@@ -100,16 +87,20 @@ app.all('/ping/*', function (req, res) {
         },
         body: "grant_type=password&username=hanaiapa%2B1%40gmail.com&password=qwerty123CedbbelZtJP19WAosRi9NfUsc&client_id=3MVG9A2kN3Bn17htioQ6Nz5nk3QXPPFE33WT6NxhY8bP5zSXfEAqJgIauBhPgt.YT8x49S1fj_2MiXlbQGP99&client_secret=6177664874919690594"
     }, function (error, response, body2) {
-        console.log(response);
+        body2 = JSON.parse(body2);
+
+        console.log("reqbody: " + reqbody);
+        console.log("body.access_token2: " + body2['access_token']);
+        
         request({
             url: "https://na15.salesforce.com/services/apexrest/Ping/",
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": response.access_token
+                "Authorization": "Bearer " + body2['access_token']
             },
-            body: body
-        });
+            body: reqbody//JSON.stringify(reqbody)
+        }).pipe(res);
     });
 
 
