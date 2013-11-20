@@ -169,6 +169,7 @@ a, a:hover, a:focus {
     height: 100%;
     position: fixed;
     background: #2a3542;
+    transition: margin 0.5s ease;
 }
 
 #sidebar ul li {
@@ -327,6 +328,7 @@ ul.sidebar-menu li a.active i {
 
 #main-content {
     margin-left: 210px;
+    transition: padding 0.5s, margin 0.5s ease;
 }
 
 .header, .footer {

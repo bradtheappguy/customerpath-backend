@@ -42,6 +42,7 @@
     #main-content {
         margin: 0px!important;
         position: none !important;
+        padding-top: 100px;
     }
 
     #sidebar > ul > li > a > span {
@@ -87,7 +88,7 @@
 
     /* sidebar */
     #sidebar {
-        margin: 0px !important;
+        margin-left: 0px !important;
     }
 
     /* sidebar collabler */
@@ -104,6 +105,18 @@
         border-bottom: 15px solid #282e36;
         border-left: 15px solid transparent;
         border-right: 15px solid transparent;
+    }
+
+    .sidebar-closed > #sidebar > ul {
+        display: none;
+    }
+
+    .sidebar-closed #main-content {
+        padding-top: 0;
+    }
+
+    .sidebar-closed #sidebar {
+        margin-top: -210px;
     }
 
 
