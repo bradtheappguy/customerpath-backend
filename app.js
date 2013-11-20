@@ -104,7 +104,7 @@ app.all('/ping/*', function (req, res) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer " + response.access_token
+                "Authorization": response.access_token
             },
             body: body
         });
