@@ -1,0 +1,351 @@
+<div class="row state-overview">
+  <div class="col-lg-3 col-sm-6">
+      <section class="panel">
+          <div class="symbol terques">
+              <i class="fa fa-user"></i>
+          </div>
+          <div class="value">
+              <h1>220</h1>
+              <p>Store Visitors Today</p>
+          </div>
+      </section>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+      <section class="panel">
+          <div class="symbol red">
+              <i class="fa fa-tags"></i>
+          </div>
+          <div class="value">
+              <h1>52</h1>
+              <p>Bought Items Today</p>
+          </div>
+      </section>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+      <section class="panel">
+          <div class="symbol yellow">
+              <i class="fa fa-shopping-cart"></i>
+          </div>
+          <div class="value">
+              <h1>0:15:24</h1>
+              <p>Average Time In Store</p>
+          </div>
+      </section>
+  </div>
+  <div class="col-lg-3 col-sm-6">
+      <section class="panel">
+          <div class="symbol blue">
+              <i class="fa fa-bar-chart-o"></i>
+          </div>
+          <div class="value">
+              <h1>34%</h1>
+              <p>Bounce Rate</p>
+          </div>
+      </section>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+
+      <div class="border-head">
+          <h3>Visitor Graph</h3>
+      </div>
+      <div class="custom-bar-chart">
+          <ul class="y-axis list-unstyled">
+              <li><span>100k</span></li>
+              <li><span>80k</span></li>
+              <li><span>60k</span></li>
+              <li><span>40k</span></li>
+              <li><span>20k</span></li>
+              <li><span>0</span></li>
+          </ul>
+          <div class="bar" ng-repeat="(month, magnitude) in visitors_per_month">
+              <div class="title">{{ month }}</div>
+              <div class="value tooltips" data-original-title="{{ magnitude }}K" data-placement="top" style="height: {{ magnitude }}%;"></div>
+          </div>
+      </div>
+
+  </div>
+  <div class="col-lg-4">
+      <!--new earning start-->
+      <div class="panel terques-chart">
+          <div class="panel-body chart-texture">
+              <div class="chart">
+                  <div class="heading">
+                    <span>Customers Today</span>
+                    <strong>Per Hour</strong>
+                  </div>
+                  <div class="sparkline-chart"
+                    data-type="line"
+                    data-resize="true"
+                    data-height="75"
+                    data-width="90%"
+                    data-line-width="1"
+                    data-line-color="#fff"
+                    data-spot-color="#fff"
+                    data-fill-color=""
+                    data-highlight-line-color="#fff"
+                    data-spot-radius="4"
+                    data-data="[5,9,10,55,52,99,56,12,89,56,45]"></div>
+              </div>
+          </div>
+          <div class="chart-tittle">
+              <span class="value">
+                  <a href="javascript:void" class="active">Total Customers</a>
+                  |
+                  <a href="javascript:void">New Customers</a>
+                  |
+                  <a href="javascript:void">Recent Customers</a>
+              </span>
+          </div>
+      </div>
+      <!--new earning end-->
+
+      <!--total earning start-->
+      <div class="panel green-chart">
+          <div class="panel-body">
+              <div class="chart">
+                  <div class="heading">
+                      <span>June</span>
+                      <strong>23 Days | 65%</strong>
+                  </div>
+                  <div class="sparkline-chart"
+                    data-type="bar"
+                    data-resize="true"
+                    data-height="65"
+                    data-width="90%"
+                    data-bar-width="8"
+                    data-bar-spacing="5"
+                    data-bar-color="#fff"
+                    data-spot-color="#fff"
+                    data-highlight-line-color="#fff"
+                    data-spot-radius="4"
+                    data-data="[5,3,6,7,5,6,4,2,3,4,6,8,9,10,8,6,5,7,6,5,4,7,4]"></div>
+              </div>
+          </div>
+          <div class="chart-tittle">
+              <span class="title">Total Earnings</span>
+              <span class="value">$ 76,54,678</span>
+          </div>
+      </div>
+      <!--total earning end-->
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <!--revenue start-->
+        <section class="panel">
+          <div class="revenue-head">
+              <span>
+                  <i class="fa fa-bar-chart-o fa-fw"></i>
+              </span>
+              <h3>Bounce Rate</h3>
+              <span class="rev-combo pull-right">
+                 November 2013
+              </span>
+          </div>
+          <div class="panel-body">
+              <div class="row">
+                  <div class="col-lg-6 col-sm-6 text-center">
+                      <div class="easy-pie-chart">
+                          <div class="percentage easyPieChart" data-percent="35" style="width: 135px; height: 135px; line-height: 135px;"><span>35</span>%</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-6">
+                      <div class="chart-info chart-position">
+                          <span class="increase"></span>
+                          <span>Customers who bought Items</span>
+                      </div>
+                      <div class="chart-info">
+                          <span class="decrease"></span>
+                          <span>Customers who didn't buy Items</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="panel-footer revenue-foot">
+              <ul>
+                  <li class="first active">
+                      <a href="javascript:void;">
+                          <i class="fa fa-bullseye"></i>
+                          Graphical
+                      </a>
+                  </li>
+                  <li>
+                      <a href="javascript:void;">
+                          <i class="fa fa-table"></i>
+                          Tabular
+                      </a>
+                  </li>
+                  <li class="last">
+                      <a href="javascript:void;">
+                          <i class="fa fa-th-list"></i>
+                          Listing
+                      </a>
+                  </li>
+              </ul>
+          </div>
+        </section>
+        <!--revenue end-->
+    </div>
+</div>
+
+<div class="row">
+
+    <h4 class="col-lg-12">Recent Visits</h4>
+
+    <div class="col-lg-4"  ng-repeat="visit in store_visits">
+        <!--user info table start-->
+        <section class="panel">
+            <div class="panel-body">
+                <div class="media">
+                    <a class="pull-left" href="javascript:void">
+                        <img class="media-object" src="./img/avatar-nathan.jpg">
+                    </a>
+                    <div class="media-body">
+                      <h5 class="media-heading">{{visit.Customer__r.Name}}</h5>
+                      <p>{{visit.Customer__r.Email}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group">
+                <a class="list-group-item">
+                    <i class="fa fa-map-marker fa-fw"></i>
+                    Store
+                    <span class="pull-right">{{ visit.Store__r.Name }}</span>
+                </a>
+                <a class="list-group-item">
+                    <i class="fa fa-sitemap fa-fw"></i>
+                    Store Section
+                    <span class="pull-right">{{ visit.StoreSection__c }}</span>
+                </a>
+                <a class="list-group-item">
+                    <i class="fa fa-tasks fa-fw"></i>
+                    Time Entered Store
+                    <span class="pull-right">{{ visit.StartTime__c | date: 'short' }}</span>
+                </a>
+                <a class="list-group-item">
+                    <i class="fa fa-exclamation-triangle fa-fw"></i>
+                    Time Left Store
+                    <span class="pull-right">{{ visit.EndTime__c | date: 'short' }}</span>
+                </a>
+                <a class="list-group-item">
+                    <i class="fa fa-envelope fa-fw"></i>
+                    In-Store Time
+                    <span class="pull-right">{{ visit.TimeSpent__c }}</span>
+                </a>
+                <a class="list-group-item">
+                    <i class="fa fa-bell fa-fw"></i>
+                    Made a purchase?
+                    <span class="pull-right">No</span>
+                </a>
+                <a class="list-group-item">
+                    <i class="fa fa-bell fa-fw"></i>
+                    Promotion
+                    <span class="pull-right">Send Offer</span>
+                </a>
+            </div>
+        </section>
+        <!--user info table end-->
+    </div>
+</div>
+
+
+<script language="javascript">
+
+(function (){
+
+    $(".sparkline-chart").each(function(){
+        var $data = $(this).data();
+
+        $data.valueSpots = {'0:': $data.spotColor};
+
+        $(this).sparkline( $data.data || "html", $data,
+        {
+            tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+        });
+    });
+
+    $('.percentage').easyPieChart({
+        animate: 1000,
+        size: 135,
+        barColor:'#ff6c60'
+    });
+/*
+    $("#pie-chart").sparkline([2,1,1,1], {
+        type: 'pie',
+        width: '100',
+        height: '100',
+        borderColor: '#00bf00',
+        sliceColors: ['#41CAC0', '#A8D76F', '#F8D347', '#EF6F66']
+//        tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+//            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+
+    //work progress bar
+
+    $("#work-progress1").sparkline([5,6,7,5,9,6,4], {
+        type: 'bar',
+        height: '20',
+        barWidth: 5,
+        barSpacing: 2,
+        barColor: '#5fbf00'
+//        tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+//            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+
+    $("#work-progress2").sparkline([3,2,5,8,4,7,5], {
+        type: 'bar',
+        height: '22',
+        barWidth: 5,
+        barSpacing: 2,
+        barColor: '#58c9f1'
+//        tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+//            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+
+    $("#work-progress3").sparkline([1,6,9,3,4,8,5], {
+        type: 'bar',
+        height: '22',
+        barWidth: 5,
+        barSpacing: 2,
+        barColor: '#8075c4'
+//        tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+//            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+
+    $("#work-progress4").sparkline([9,4,9,6,7,4,3], {
+        type: 'bar',
+        height: '22',
+        barWidth: 5,
+        barSpacing: 2,
+        barColor: '#ff6c60'
+//        tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+//            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+
+    $("#work-progress5").sparkline([6,8,5,7,6,8,3], {
+        type: 'bar',
+        height: '22',
+        barWidth: 5,
+        barSpacing: 2,
+        barColor: '#41cac0'
+//        tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+//            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+
+    $("#pie-chart2").sparkline([2,1,1,1], {
+        type: 'pie',
+        width: '250',
+        height: '125',
+        sliceColors: ['#41CAC0', '#A8D76F', '#F8D347', '#EF6F66']
+//        tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+//    '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'});
+
+    });
+*/
+})();
+</script>

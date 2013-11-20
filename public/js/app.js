@@ -18,6 +18,57 @@ angular.module('Contact', []).factory('Contact', function (AngularForceObjectFac
     return Contact;
 });
 
+angular.module('StoreVisit', []).factory('StoreVisit', function (AngularForceObjectFactory) {
+    //Describe the StoreVisit object
+    var objDesc = {
+        type: 'StoreVisit__c',
+        fields: ['CreatedBy.Name', 'LastModifiedBy.Name', 'Owner.Name', 'Name',
+            'ifa__c', 'Customer__r.Name', 'Customer__r.Email',
+            'Store__r.Name', 'StoreSection__c',
+            'StartTime__c', 'EndTime__c', 'TimeSpent__c'
+            ],
+        where: '',
+        orderBy: 'EndTime__c',
+        limit: 20
+    };
+    var StoreVisit = AngularForceObjectFactory(objDesc);
+
+    return StoreVisit;
+});
+
+function DashboardCtrl($scope, AngularForce, $location, StoreVisit) {
+    if (!AngularForce.authenticated()) {
+        return $location.path('/');
+    }
+
+    // sample data could be extracted from aggregate object on salesforce
+    $scope.visitors_per_month = {
+        "JAN": 80,
+        "FEB": 50,
+        "MAR": 40,
+        "APR": 55,
+        "MAY": 20,
+        "JUN": 39,
+        "JUL": 75,
+        "AUG": 45,
+        "SEP": 50,
+        "OCT": 42,
+        "NOV": 60,
+        "DEC": 90
+    };
+
+    // sample data could be extracted from aggregate object on salesforce
+    $scope.customers_today = [5,9,10,55,52,99,56,12,89,56,45];
+
+    StoreVisit.query(function (data) {
+        $scope.store_visits = data.records;
+        $scope.$apply(); // Required coz sfdc uses jquery.ajax
+    }, function (data) {
+        alert('Query Error', data.responseJSON.message);
+    });
+
+}
+
 function HomeCtrl($scope, AngularForce, $location, $route) {
     var isOnline =  AngularForce.isOnline();
     var isAuthenticated = AngularForce.authenticated();
@@ -29,7 +80,7 @@ function HomeCtrl($scope, AngularForce, $location, $route) {
         if(!isAuthenticated) {//MobileWeb
             return $location.path('/login');
         } else {//Cordova
-            return $location.path('/contacts/');
+            return $location.path('/dashboard/');
         }
     }
 
@@ -38,7 +89,7 @@ function HomeCtrl($scope, AngularForce, $location, $route) {
         $location.path('/login');
     } else if (AngularForce.refreshToken) { //If web, try to relogin using refresh-token
         AngularForce.login(function () {
-            $location.path('/contacts/');
+            $location.path('/dashboard/');
             $scope.$apply();//Required coz sfdc uses jquery.ajax
         });
     } else {
@@ -49,17 +100,17 @@ function HomeCtrl($scope, AngularForce, $location, $route) {
 function LoginCtrl($scope, AngularForce, $location) {
     //Usually happens in Cordova
     if (AngularForce.authenticated()) {
-        return $location.path('/contacts/');
+        return $location.path('/');
     }
 
     $scope.login = function () {
         //If in visualforce, 'login' = initialize entity framework
         if (AngularForce.inVisualforce) {
            AngularForce.login(function() {
-            $location.path('/contacts/');
-           });     
+            $location.path('/');
+           });
         } else {
-            AngularForce.login();           
+            AngularForce.login();
         }
     };
 
@@ -85,7 +136,7 @@ function CallbackCtrl($scope, AngularForce, $location) {
     //..coz oauth CB returns access_token in its own hash making it two hashes (1 from angular,
     // and another from oauth)
     $location.hash('');
-    $location.path('/contacts');
+    $location.path('/');
 }
 
 function ContactListCtrl($scope, AngularForce, $location, Contact) {

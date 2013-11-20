@@ -4,7 +4,13 @@
 //var app = angular.module('AngularSFDemo', ['AngularForce', 'AngularForceObjectFactory', 'Contact', 'ui.bootstrap.dropdownToggle']);
 //app.constant('SFConfig', getSFConfig());
 
-var app = angular.module('AngularSFDemo', ['AngularForce', 'AngularForceObjectFactory', 'Contact', 'ui.bootstrap.dropdownToggle']);
+var app = angular.module('CustomerPath', [
+    'AngularForce',
+    'AngularForceObjectFactory',
+    'Contact',
+    'StoreVisit',
+    'ui.bootstrap.dropdownToggle'
+    ]);
 var SFConfig = getSFConfig();
 
 SFConfig.maxListSize = 25;
@@ -58,6 +64,7 @@ app.config(function ($routeProvider) {
         when('/login', {controller: LoginCtrl, templateUrl: 'partials/login.html'}).
         when('/logout', {controller: LoginCtrl, templateUrl: 'partials/logout.html'}).
         when('/callback', {controller: CallbackCtrl, templateUrl: 'partials/callback.html'}).
+        when('/dashboard', {controller: DashboardCtrl, templateUrl: 'partials/dashboard/home.html'}).
         when('/contacts', {controller: ContactListCtrl, templateUrl: 'partials/contact/list.html'}).
         when('/view/:contactId', {controller: ContactViewCtrl, templateUrl: 'partials/contact/view.html'}).
         when('/edit/:contactId', {controller: ContactDetailCtrl, templateUrl: 'partials/contact/edit.html'}).

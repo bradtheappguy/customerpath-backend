@@ -1,8 +1,14 @@
 <!doctype html>
 
-<html >
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple Real World User Anyalytics">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>Customerpath.io / Simple Real World User Anyalytics</title>
+
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -12,52 +18,253 @@
             text-align: center;
         }
     </style>
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-elements.css" rel="stylesheet">
 
 </head>
-<body ng-app="AngularSFDemo">
-<div  class="navbar navbar-inverse navbar-fixed-top" ng-controller="LoginCtrl">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="#">Salesforce Contacts</a>
-            <div ng-show="isLoggedIn()" class="btn-group pull-right">
-                <a class="btn dropdown-toggle">
-                    <i class="icon-wrench"></i>
-                </a>
-                <ul class="dropdown-menu">
-                    <li ng-click="logout()"><a>Log Out</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<body ng-app="CustomerPath">
 
-<div class="container">
-    <div ng-view></div>
-</div>
-<script type="text/javascript">
+    <section id="container" class="">
+        <!--header start-->
+        <header class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Toggle Navigation" data-placement="right" class="tooltips">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <!--logo start-->
+            <a href="/" class="logo">Customer<span>Path</span></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- inbox dropdown start-->
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-envelope-o fa-fw"></i>
+                            <span class="badge bg-important">4</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-red"></div>
+                            <li>
+                                <p class="red">You have 5 new messages</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-harvey.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Harvey Chan</span>
+                                    <span class="time">Just now</span>
+                                    </span>
+                                    <span class="message">
+                                        Message from Corporate.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-brad.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Brad Smith</span>
+                                    <span class="time">10 mins</span>
+                                    </span>
+                                    <span class="message">
+                                     Email Confirmation.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-laura.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Laura Jensen</span>
+                                    <span class="time">3 hrs</span>
+                                    </span>
+                                    <span class="message">
+                                        Did you get a chance to ...
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-max.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Maxime Domain</span>
+                                    <span class="time">Yesterday</span>
+                                    </span>
+                                    <span class="message">
+                                        Hello, this is metrolab
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">See all messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
+                    <!-- notification dropdown start-->
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-bell-o fa-fw"></i>
+                            <span class="badge bg-warning">7</span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <div class="notify-arrow notify-arrow-yellow"></div>
+                            <li>
+                                <p class="yellow">You have 7 new notifications</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-danger"><i class="fa fa-flash fa-fw"></i></span>
+                                    100 customers last hour.
+                                    <span class="small italic">Just now</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-warning"><i class="fa fa-bell fa-fw"></i></span>
+                                    Bounce rate above 50%.
+                                    <span class="small italic">10 mins</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-danger"><i class="fa fa-flash fa-fw"></i></span>
+                                    50 customers in 30 mins.
+                                    <span class="small italic">34 mins</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-success"><i class="fa fa-plus fa-fw"></i></span>
+                                    New membership.
+                                    <span class="small italic">1 Hours</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-info"><i class="fa fa-bullhorn fa-fw"></i></span>
+                                    In-store below 5 mins.
+                                    <span class="small italic">4 hrs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">See all notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- notification dropdown end -->
+                </ul>
+                <!--  notification end -->
+            </div>
+
+            <div class="top-nav">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+<!--
+                    <li>
+                        <form>
+                            <input type="text" ng-model="searchTerm" class="form-control search" placeholder="Search">
+                        </form>
+                    </li>
+ -->
+                    <!-- user login dropdown start-->
+                    <li class="dropdown btn-group pull-right" ng-controller="LoginCtrl" ng-show="isLoggedIn()">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="./img/avatar-prateek.jpg">
+                            <span class="username">Prateek Gupta</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li><a href="#" ng-click="logout()"><i class="fa fa-key"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" tabindex="5000">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+                  <li>
+                      <a class="active" href="#/dashboard">
+                          <i class="fa fa-dashboard fa-fw"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#/contacts">
+                          <i class="fa fa-th fa-fw"></i>
+                          <span>Customers</span>
+                      </a>
+                  </li>
+<!--
+                  <li>
+                      <a href="#/settings">
+                          <i class="fa fa-cogs fa-fw"></i>
+                          <span>Settings</span>
+                      </a>
+                  </li>
+ -->
+                 </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper" ng-view>
+
+            </section>
+        </section>
+        <!--main content end-->
+    </section>
+
+
+    <script src="js/vendor/jquery-2.0.0.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/underscore-1.4.4.min.js"></script>
+    <script src="js/vendor/angular.1.0.6.min.js"></script>
+    <script src="js/vendor/dropdownToggle.js"></script>
+    <script src="js/vendor/jquery.nicescroll.js"></script>
+    <script src="js/vendor/jquery.sparkline.js"></script>
+    <script src="js/vendor/jquery.easy-pie-chart.js"></script>
+
+    <script type="text/javascript">
     //Get configuration from environment variables (via heroku or localhost env)
     var configFromEnv = {};
     configFromEnv.client_id = '<%= client_id %>';
     configFromEnv.app_url = '<%= app_url %>';
 
-</script>
+    jQuery(document).ready(function($) {
+        $('.tooltips').tooltip();
+        $('.toggles').collapse();
+        $('.popovers').popover();
 
+        $('.sidebar-toggle-box').click(function () {
+            $("#container").toggleClass("sidebar-closed");
+        });
 
+        $("html").niceScroll({styler:"fb",cursorcolor:"#e8403f", cursorwidth: '6', cursorborderradius: '10px', background: '#404040', spacebarenabled:false,  cursorborder: '', zindex: '1000'});
+    });
+    </script>
 
-<script src="js/vendor/jquery-2.0.0.min.js"></script>
-<script src="js/vendor/underscore-1.4.4.min.js"></script>
-<script src="js/vendor/angular.1.0.6.min.js"></script>
-<script src="js/vendor/dropdownToggle.js"></script>
+    <script src="js/sdk/forcetk.mobilesdk.js"></script>
+    <script src="js/sdk/smartsync.js"></script>
+    <script src="js/sdk/angular-force.js"></script>
+    <script src="js/sdk/forcetk.ui.js"></script>
 
-<script src="js/sdk/forcetk.mobilesdk.js"></script>
-<script src="js/sdk/smartsync.js"></script>
-<script src="js/sdk/angular-force.js"></script>
-<script src="js/sdk/forcetk.ui.js"></script>
-
-<script src="js/init.js"></script>
-<script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/app.js"></script>
 
 
 </body>
