@@ -88,7 +88,7 @@ app.all('/ping/*', function (req, res) {
         return res.send('Request successful (but nothing to proxy to SF)');
     }
 
-    console.log(authenticatedSession["access_token"]);
+    console.log(authenticatedSession.access_token);
 
     request({
         url: sfEndpoint,// || "https://login.salesforce.com//services/oauth2/token",
