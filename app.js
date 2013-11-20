@@ -123,7 +123,7 @@ app.all('/ping/*', function (req, res) {
     //    },
     //    body: body
     //}).pipe(res);
-});
+
 
 function loginWithOauthPassword() {
     return request({
