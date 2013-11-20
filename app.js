@@ -88,18 +88,37 @@ app.all('/ping/*', function (req, res) {
         return res.send('Request successful (but nothing to proxy to SF)');
     }
 
-    console.log(authenticatedSession.access_token);
-
+    console.log(authenticatedSession);
     request({
-        url: sfEndpoint,// || "https://login.salesforce.com//services/oauth2/token",
-        method: req.method,
+        url: "https://login.salesforce.com/services/oauth2/token",
+        method: "POST",
         headers: {
-            "Content-Type": contentType,
-            "Authorization": "Bearer " + authenticatedSession["access_token"],
-            "X-User-Agent": req.headers["x-user-agent"]
+            "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: body
-    }).pipe(res);
+        body: "grant_type=password&username=hanaiapa%2B1%40gmail.com&password=qwerty123CedbbelZtJP19WAosRi9NfUsc&client_id=3MVG9A2kN3Bn17htioQ6Nz5nk3QXPPFE33WT6NxhY8bP5zSXfEAqJgIauBhPgt.YT8x49S1fj_2MiXlbQGP99&client_secret=6177664874919690594"
+    }).pipe(function (authsess) {
+        request({
+            url: "https://na15.salesforce.com/services/apexrest/Ping/",
+            method: req.method,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + authenticatedSession.access_token
+            },
+            body: body
+        }).pipe(res);
+
+    });
+
+    //request({
+    //    url: sfEndpoint,// || "https://login.salesforce.com//services/oauth2/token",
+    //    method: req.method,
+    //    headers: {
+    //        "Content-Type": contentType,
+    //        "Authorization": "Bearer " + authenticatedSession["access_token"],
+    //        "X-User-Agent": req.headers["x-user-agent"]
+    //    },
+    //    body: body
+    //}).pipe(res);
 });
 
 function loginWithOauthPassword() {
